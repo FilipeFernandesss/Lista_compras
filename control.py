@@ -26,4 +26,8 @@ class Control:
 
     #Método para atualizar a quantidade
     def atualizar_quantidade(self, item, qtd):
-        self.model.atualizar_quantidade(item, qtd)
+        self.view.atualizar_quantidade(item, qtd)
+
+
+    def add_quantidade(self,item, qtd):
+        self.model.add_quantidade(item,qtd)

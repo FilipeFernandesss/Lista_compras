@@ -48,9 +48,10 @@ class View:
     #Método para incluir item
     def incluir_item(self):
         item = input("Digite o item:\n")
-        qtd = input("Digite  a quantidade:\n")
+        qtd = int(input("Digite  a quantidade:\n"))
         self.control.incluir_item(item, qtd)
-        self.atualizar_quantidade(item, qtd)
+        #self.atualizar_quantidade(item, qtd)
+
 
     #Excluir item
     def exluir(self):
@@ -59,4 +60,13 @@ class View:
 
     #Att quantidade
     def atualizar_quantidade(self, item, qtd):
-        self.control.atualizar_quantidade(item, qtd)
+            resposta = input("""
+            1. Atualizar a quantidadde de itens.
+            2. Retonar ao menu principal.""")
+
+            if resposta == '1':
+                self.control.add_quantidade(item, qtd)
+            elif resposta == '2':
+                print("Menu Principal")
+            else:
+                print("fdg")

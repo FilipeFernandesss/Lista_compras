@@ -3,6 +3,11 @@ class Model:
     #Método construtor
     def __init__(self):
         self.lista_compras = {'Omo': 1, 'Arroz': 2, 'Bombril': 10}
+        self.control = None
+
+    #Guarda a control associada
+    def set_control(self, control):
+        self.control = control
 
     #Método que recupera a lista
     def get_lista_compras(self):
@@ -10,13 +15,14 @@ class Model:
 
     #Método para add item
     def add_item(self, item, qtd):
-        for itens in self.get_lista_compras().keys():
-            if itens in item:
-                print("O item já pertencia a lista.\n Deseja atualizar a quantidade?")
-                self.atualizar_quantidade(item, qtd)
-            else:
-                self.lista_compras[item] = qtd
-                break
+
+        if item in self.get_lista_compras():
+            print("O item já pertencia a lista.")
+            self.atualizar_quantidade(item, qtd)
+
+        else:
+            self.lista_compras[item] = qtd
+
 
 
     #Método para excluir item
@@ -25,8 +31,16 @@ class Model:
             if chave == item:
                 del self.get_lista_compras()[chave]
                 break
+            else:
+                print("O item não está presente na lista")
 
 
     #Método para atualizar a quantidade
     def atualizar_quantidade(self, item, qtd):
-        print(self.get_lista_compras()[item])
+        self.control.atualizar_quantidade(item, qtd)
+
+    #Método para add a quantidade
+    def add_quantidade(self,item, qtd):
+        self.get_lista_compras()[item] = self.get_lista_compras()[item] + qtd
+
+
