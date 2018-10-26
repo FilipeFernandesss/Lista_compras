@@ -27,12 +27,10 @@ class Model:
 
     #Método para excluir item
     def exluir(self, item):
-        for chave in self.get_lista_compras().keys():
-            if chave == item:
-                del self.get_lista_compras()[chave]
-                break
-            else:
-                print("O item não está presente na lista")
+        if item in self.get_lista_compras():
+            del self.get_lista_compras()[item]
+        else:
+            print("O item não está presente na lista")
 
 
     #Método para atualizar a quantidade
@@ -40,7 +38,7 @@ class Model:
         self.control.atualizar_quantidade(item, qtd)
 
     #Método para add a quantidade
-    def add_quantidade(self,item, qtd):
+    def add_quantidade(self, item, qtd):
         self.get_lista_compras()[item] = self.get_lista_compras()[item] + qtd
 
 
