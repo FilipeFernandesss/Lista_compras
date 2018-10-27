@@ -1,0 +1,5 @@
+batata : 10
+cafe : 1
+macarrao : 2
+banana : 4
+arroz : 3

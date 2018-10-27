@@ -2,8 +2,9 @@
 class Model:
     #Método construtor
     def __init__(self):
-        self.lista_compras = {'Omo': 1, 'Arroz': 2, 'Bombril': 10}
+        #self.lista_compras = {'Omo': 1, 'Arroz': 2, 'Bombril': 10}
         self.control = None
+        #print(self.get_lista_compras())
 
     #Guarda a control associada
     def set_control(self, control):
@@ -22,6 +23,7 @@ class Model:
 
         else:
             self.lista_compras[item] = qtd
+            print('\n Item incluído')
 
 
 
@@ -29,6 +31,7 @@ class Model:
     def exluir(self, item):
         if item in self.get_lista_compras():
             del self.get_lista_compras()[item]
+            print('\n Item excluído')
         else:
             print("O item não está presente na lista")
 
@@ -42,3 +45,6 @@ class Model:
         self.get_lista_compras()[item] = self.get_lista_compras()[item] + qtd
 
 
+    #Método para carregar o arquivo
+    def carregar_arquivo(self):
+        return self.control.carregar_lista()

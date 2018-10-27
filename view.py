@@ -28,10 +28,10 @@ class View:
                 self.exibir_lista_compras(self.control.get_lista_compras())
             elif resposta == '2':
                 self.incluir_item()
-                print('\n Item incluído')
+
             elif resposta == '3':
                 self.exluir()
-                print('\n Item excluído')
+
             elif resposta == '4':
                 print('\n Tchau!')
                 resposta = False
@@ -66,6 +66,7 @@ class View:
 
             if resposta == '1':
                 self.control.add_quantidade(item, qtd)
+                print("Quantidade alterada!\n")
             elif resposta == '2':
                 print("Menu Principal")
             else:

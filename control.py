@@ -1,10 +1,12 @@
 # Classe de controle
 class Control:
     #Método construtor
-    def __init__(self, view, model):
+    def __init__(self, view, model, arquivo):
         #Atributos
         self.view = view
         self.model = model
+        self.arquivo = arquivo
+        print(self.carregar_lista())
 
     #Método para exibir menu
     def exibir_menu(self):
@@ -31,3 +33,7 @@ class Control:
 
     def add_quantidade(self,item, qtd):
         self.model.add_quantidade(item,qtd)
+
+    #Método para carregar lista
+    def carregar_lista(self):
+        return self.arquivo.ler_arquivo()
